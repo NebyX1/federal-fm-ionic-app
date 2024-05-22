@@ -1,0 +1,7 @@
+{
+  "name": "federalFmApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite"
+}
