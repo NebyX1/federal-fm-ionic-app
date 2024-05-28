@@ -1,0 +1,36 @@
+.background {
+  background-image: url("../../assets/background.webp");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.logo {
+  background-image: url("../../assets/federal_logo.webp");
+  background-position: center;
+  background-size: contain;
+  width: 40vh;
+  height: 40vh;
+  margin: auto;
+  margin-top: 10vh;
+  margin-bottom: 7vh;
+  display: block;
+  border-radius: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+  background-color: #ffffff;
+  padding: 10px;
+}
+
+.buttons {
+padding-top: 20px;
+padding-bottom: 10px;
+padding-left: 70px;
+padding-right: 70px;
+}
+
+/* Path: src/theme/modules/navbar.module.css */

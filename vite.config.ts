@@ -8,9 +8,13 @@ export default defineConfig({
     react(),
     legacy()
   ],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: './src/setupTests.ts',
+  server: {
+    proxy: {
+      '/api': {
+        target: 'http://usa15.ciudaddigital.com.uy:8040',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, '')
+      }
+    }
   }
 })

@@ -1,0 +1,31 @@
+/* Core Ionic CSS Styles */
+@import "@ionic/react/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "@ionic/react/css/normalize.css";
+@import "@ionic/react/css/structure.css";
+@import "@ionic/react/css/typography.css";
+
+/* Optional CSS utils that can be commented out */
+@import "@ionic/react/css/padding.css";
+@import "@ionic/react/css/float-elements.css";
+@import "@ionic/react/css/text-alignment.css";
+@import "@ionic/react/css/text-transformation.css";
+@import "@ionic/react/css/flex-utils.css";
+@import "@ionic/react/css/display.css";
+
+/* Importamos la hoja de estilos */
+@import "./variables.css";
+
+.particle-background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+  
+  .ion-app {
+    position: relative;
+    z-index: 1;
+  }
+  

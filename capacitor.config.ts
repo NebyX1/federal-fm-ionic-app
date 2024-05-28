@@ -1,9 +1,12 @@
-import type { CapacitorConfig } from '@capacitor/cli';
+import { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'federalFmApp',
-  webDir: 'dist'
+  appId: 'com.federalfm.id',
+  appName: 'Federal FM',
+  webDir: 'dist',
+  server: {
+    androidScheme: 'http'
+  }
 };
 
 export default config;
