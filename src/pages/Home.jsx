@@ -40,7 +40,6 @@ const Home = () => {
     App.exitApp();
   };
 
-
   useEffect(() => {
     const audio = audioRef.current;
     audio.volume = volume;
@@ -48,13 +47,7 @@ const Home = () => {
     const handleCanPlay = () => {
       setIsLoading(false);
       setHasLoaded(true);
-      if ("mediaSession" in navigator) {
-        navigator.mediaSession.metadata = new MediaMetadata({
-          title: "Federal FM 99.1",
-        });
-        navigator.mediaSession.setActionHandler("play", togglePlayPause);
-        navigator.mediaSession.setActionHandler("pause", togglePlayPause);
-      }
+      updateMediaSession();
     };
 
     audio.addEventListener("canplay", handleCanPlay);
@@ -69,9 +62,7 @@ const Home = () => {
     if (isPlaying) {
       audio.pause();
       setIsPlaying(false);
-      if ("mediaSession" in navigator) {
-        navigator.mediaSession.playbackState = "paused";
-      }
+      updateMediaSession("paused");
     } else {
       if (!hasLoaded) {
         setIsLoading(true);
@@ -80,14 +71,23 @@ const Home = () => {
         .play()
         .then(() => {
           setIsPlaying(true);
-          if ("mediaSession" in navigator) {
-            navigator.mediaSession.playbackState = "playing";
-          }
+          updateMediaSession("playing");
         })
         .catch((error) => {
           console.error("Error al reproducir el audio:", error);
           setIsLoading(false);
         });
+    }
+  };
+
+  const updateMediaSession = (state = "paused") => {
+    if ("mediaSession" in navigator) {
+      navigator.mediaSession.metadata = new MediaMetadata({
+        title: "Federal FM 99.1",
+      });
+      navigator.mediaSession.setActionHandler("play", togglePlayPause);
+      navigator.mediaSession.setActionHandler("pause", togglePlayPause);
+      navigator.mediaSession.playbackState = state;
     }
   };
 
